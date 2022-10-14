@@ -1,26 +1,22 @@
-import React, { useState } from "react";
-import "./Login.css";
+import { React, useState } from "react";
+import "./SignUp.css";
 
-// Icons
 import logo from "../../assets/images/logoGPS.png";
+import cedula from "../../assets/images/cedula.png";
 import email from "../../assets/images/email.png";
 import passwordIcon from "../../assets/images/password.png";
 import hiddenPassword from "../../assets/images/hiddenPassword.png";
 import visiblePassword from "../../assets/images/visiblePassword.png";
 
-export default function Login() {
-  // Estados para la funcionalidad de mostrar/esconder password
+export default function SignUp() {
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIconShown, setPasswordIconShown] = useState(false);
 
   const togglePassword = () => {
-    // Funcionalidad de mostrar/esconder password
     setPasswordShown(!passwordShown);
     setPasswordIconShown(!passwordIconShown);
   };
-
   return (
-    // Contenido general
     <div className="login-container">
       <div className="main-container">
         <img
@@ -29,9 +25,21 @@ export default function Login() {
           alt=""
         />
         <div className="form-container">
-          {/* Contenido de los formularios (username y password)
-        tambien un poco de estilo */}
           <form>
+            <div className="input-container">
+              <img
+                src={cedula}
+                width={17}
+                height={17}
+                style={{ padding: 5 }}
+                alt=""
+              />
+              <input
+                type="text"
+                placeholder="Cedula: 00000000000"
+                style={{ fontSize: 14 }}
+              />
+            </div>
             <div className="input-container">
               <img
                 src={email}
@@ -70,10 +78,7 @@ export default function Login() {
                 alt=""
               />
             </div>
-            <div className="recovery">
-              <p>¿Olvidaste tu contraseña?</p>
-            </div>
-            <input type="submit" value="Iniciar" className="button" />
+            <input type="submit" value="Registrar" className="button" />
           </form>
         </div>
       </div>
