@@ -21,14 +21,14 @@ export default function Login() {
 
   return (
     // Contenido general
-    <div className="loginContainer">
-      <div className="mainContainer">
+    <div className="login-container">
+      <div className="main-container">
         <img src={logo} style={{ margin: 40, width: 200, height: 200 }} alt="" />
-        <div className="formContainer">
+        <div className="form-container">
           {/* Contenido de los formularios (username y password)
         tambien un poco de estilo */}
           <form>
-            <div className="inputContainer">
+            <div className="input-container">
               <img
                 src={userIcon}
                 width={17}
@@ -43,7 +43,7 @@ export default function Login() {
               />
             </div>
 
-            <div className="inputContainer">
+            <div className="input-container">
               <img
                 src={passwordIcon}
                 width={17}
@@ -57,7 +57,7 @@ export default function Login() {
                 style={{ fontSize: 14 }}
               />
               <img
-                className="passwordEyeIcon"
+                className="password-eye-icon"
                 onClick={togglePassword}
                 src={passwordIconShown ? visiblePassword : hiddenPassword}
                 width={25}

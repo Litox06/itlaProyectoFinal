@@ -1,11 +1,11 @@
-.loginContainer {
+.login-container {
     height: 100vh;
     overflow: hidden;
     padding: 1.25rem;
     background-color: #EBECF1;
 }
 
-.mainContainer {
+.main-container {
     /* Estilo del contenedor general */
     position: absolute;
     top: 50%;
@@ -20,7 +20,7 @@
     background-color: #FFFFFF;
 }
 
-.formContainer {
+.form-container {
     /* Estilo de los elementos dentro del contenedor general */
     width: 70%;
     margin: 0 auto;
@@ -29,7 +29,7 @@
     align-items: center;
 }
 
-.formContainer form {
+.form-container form {
     width: 100%;
 }
 
@@ -45,7 +45,7 @@ input:focus {
     outline: none;
 }
 
-.inputContainer {
+.input-container {
     padding: 20px;
     border-radius: 1000px;
     border: 1px solid #3C6A75;
@@ -54,7 +54,7 @@ input:focus {
     position: relative;
 }
 
-.passwordEyeIcon {
+.password-eye-icon {
     /* Estilo del icono de mostrar/esconder password */
     position: absolute;
     right: 30px;
