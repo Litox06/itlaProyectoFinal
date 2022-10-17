@@ -7,6 +7,7 @@ import email from "../../assets/images/email.png";
 import passwordIcon from "../../assets/images/password.png";
 import hiddenPassword from "../../assets/images/hiddenPassword.png";
 import visiblePassword from "../../assets/images/visiblePassword.png";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   // Estados para la funcionalidad de mostrar/esconder password
@@ -73,7 +74,11 @@ export default function Login() {
             <div className="recovery">
               <p>¿Olvidaste tu contraseña?</p>
             </div>
-            <input type="submit" value="Iniciar" className="button" />
+
+            <input type="submit" value="Iniciar" className="sign-in" />
+            <Link to={"/signup"} >
+              <input type="submit" value="Registrar" className="register" style={{backgroundColor: "#23ad3e" }}/>
+            </Link>
           </form>
         </div>
       </div>

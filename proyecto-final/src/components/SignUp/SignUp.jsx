@@ -78,7 +78,7 @@ export default function SignUp() {
                 alt=""
               />
             </div>
-            <input type="submit" value="Registrar" className="button" />
+            <input type="submit" value="Registrar" className="register" style={{backgroundColor: "#23ad3e" }}/>
           </form>
         </div>
       </div>

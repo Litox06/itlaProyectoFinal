@@ -61,7 +61,8 @@ input:focus {
     cursor: pointer;
 }
 
-.recovery {
+.recovery
+{
     /* Estilo de "Olvidaste la contraseña?" */
     font-size: 14px;
     margin: 30px;
@@ -70,7 +71,8 @@ input:focus {
     cursor: pointer;
 }
 
-.button {
+.sign-in,
+.register {
     /* Estilo de iniciar sesion */
     color: #FFFFFF;
     width: 100%;
