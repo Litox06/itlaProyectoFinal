@@ -1,0 +1,11 @@
+.email-sent-container {
+    height: 100vh;
+    overflow: hidden;
+    padding: 1.25rem;
+    background-color: #dedfe2 !important;
+}
+
+h3 {
+    font-weight: 800;
+}
+

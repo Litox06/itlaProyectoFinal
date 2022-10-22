@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import "./SignUp.css";
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/images/logoGPS.png";
 import cedula from "../../assets/images/cedula.png";
@@ -19,11 +20,14 @@ export default function SignUp() {
   return (
     <div className="login-container">
       <div className="main-container">
-        <img
-          src={logo}
-          style={{ margin: 40, width: 200, height: 200 }}
-          alt=""
-        />
+        <Link to="/login">
+          <img
+            src={logo}
+            style={{ margin: 40, width: 200, height: 200 }}
+            alt=""
+          />
+        </Link>
+
         <div className="form-container">
           <form>
             <div className="input-container">
@@ -78,7 +82,12 @@ export default function SignUp() {
                 alt=""
               />
             </div>
-            <input type="submit" value="Registrar" className="register" style={{backgroundColor: "#23ad3e" }}/>
+            <input
+              type="submit"
+              value="Registrar"
+              className="register"
+              style={{ backgroundColor: "#23ad3e" }}
+            />
           </form>
         </div>
       </div>
