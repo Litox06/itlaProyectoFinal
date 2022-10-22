@@ -4,17 +4,18 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
+import Recovery from "./components/Recovery/Recovery"
+import EmailSent from "./components/EmailSent/EmailSent";
 
-// TODO: arreglar boton de registrar, crear componente de recuperacion, arreglar nombres de divs y CSS para que esten separados,
-// conectar los componentes (Login - Registrarse - Recuperar Contraseña)
 
 function App() {
   return (
     <Router>
-      <Login/>
       <Routes>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/recovery" element={<Recovery/>} />
+        <Route path="/emailsent" element={<EmailSent/>} />
       </Routes>
     </Router>
   );
