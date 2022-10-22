@@ -24,11 +24,14 @@ export default function Login() {
     // Contenido general
     <div className="login-container">
       <div className="main-container">
-        <img
-          src={logo}
-          style={{ margin: 40, width: 200, height: 200 }}
-          alt=""
-        />
+        <Link to="/login">
+          <img
+            src={logo}
+            style={{ margin: 40, width: 200, height: 200 }}
+            alt=""
+          />
+        </Link>
+
         <div className="form-container">
           {/* Contenido de los formularios (username y password)
         tambien un poco de estilo */}
@@ -72,12 +75,22 @@ export default function Login() {
               />
             </div>
             <div className="recovery">
-              <p>¿Olvidaste tu contraseña?</p>
+              <Link
+                style={{ textDecoration: "none", color: "#7E8CA0" }}
+                to="/recovery"
+              >
+                <p>¿Olvidaste tu contraseña?</p>
+              </Link>
             </div>
 
             <input type="submit" value="Iniciar" className="sign-in" />
-            <Link to={"/signup"} >
-              <input type="submit" value="Registrar" className="register" style={{backgroundColor: "#23ad3e" }}/>
+            <Link to={"/signup"}>
+              <input
+                type="submit"
+                value="Registrar"
+                className="register"
+                style={{ backgroundColor: "#23ad3e" }}
+              />
             </Link>
           </form>
         </div>
