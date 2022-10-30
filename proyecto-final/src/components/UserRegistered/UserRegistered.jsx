@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./EmailSent.css";
+import "./UserRegistered.css";
 
 // Icons
 import logo from "../../assets/images/logoGPS.png";
@@ -9,7 +9,7 @@ import returnArrow from "../../assets/images/returnArrow.png";
 export default function EmailSent() {
   return (
     // Contenido general
-    <div className="email-sent-container">
+    <div className="user-registered-container">
       <div className="main-container">
         <Link to="/login">
           <img
@@ -19,10 +19,10 @@ export default function EmailSent() {
           />
         </Link>
 
-        <div className="email-sent-text">
-          <h2>Hemos enviado un link al correo: correo_aqui</h2>
+        <div className="user-registered-text">
+          <h2>¡El usuario: email_aqui ha sido registrado!</h2>
         </div>
-        <div className="email-sent-return">
+        <div className="user-registered-return">
           <Link
             to="/login"
             style={{ textDecoration: "none", color: "#3C6B76" }}
