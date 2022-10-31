@@ -7,10 +7,12 @@ import SignUp from "./components/SignUp/SignUp";
 import Recovery from "./components/Recovery/Recovery";
 import EmailSent from "./components/EmailSent/EmailSent";
 import UserRegistered from "./components/UserRegistered/UserRegistered";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   return (
     <Router>
+      <Sidebar />
       <Routes>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
