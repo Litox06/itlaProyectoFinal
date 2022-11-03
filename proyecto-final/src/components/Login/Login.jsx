@@ -8,11 +8,26 @@ import passwordIcon from "../../assets/images/password.png";
 import hiddenPassword from "../../assets/images/hiddenPassword.png";
 import visiblePassword from "../../assets/images/visiblePassword.png";
 import { Link } from "react-router-dom";
+import { getUser } from "../../database";
 
 export default function Login() {
   // Estados para la funcionalidad de mostrar/esconder password
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIconShown, setPasswordIconShown] = useState(false);
+
+  const [eemail, setEmail] = useState('');
+  const [contrasena, setContrasena] = useState('');
+
+  const [estado, setEstado] = useState()
+
+
+  const handleInputChangeEmail = ({target}) =>{
+    setEmail(target.value)
+  }
+  const handleInputChangeContrasena = ({target}) =>{
+    setContrasena(target.value)
+  }
+
 
   const togglePassword = () => {
     // Funcionalidad de mostrar/esconder password
@@ -48,6 +63,8 @@ export default function Login() {
                 type="text"
                 placeholder="E-mail"
                 style={{ fontSize: 14 }}
+                value={eemail}
+                onChange={handleInputChangeEmail}
               />
             </div>
 
@@ -63,6 +80,8 @@ export default function Login() {
                 type={passwordShown ? "text" : "password"}
                 placeholder="Contraseña"
                 style={{ fontSize: 14 }}
+                value={contrasena}
+                onChange={handleInputChangeContrasena}
               />
               <img
                 className="password-eye-icon"
@@ -83,10 +102,33 @@ export default function Login() {
               </Link>
             </div>
 
-            <input type="submit" value="Iniciar" className="sign-in" />
+            <h4>{estado}</h4>
+
+            <input value="Iniciar" className="sign-in" onClick={() => {
+
+
+
+              try{
+                getUser(eemail, contrasena).then(value => {
+
+                  if(value === false){
+                    setEstado('No se inicio sesion')              
+                  }else{
+                    localStorage.setItem('user', value)
+                    setEstado('Bienvendio usuario, este es su numero de cedula: ' + value.cedula)
+                  }
+                  
+    
+                }).catch((e)=> alert(e))
+
+              }catch(e){
+                alert(e)
+              };
+
+
+              }}/>
             <Link to={"/signup"}>
               <input
-                type="submit"
                 value="Registrar"
                 className="register"
                 style={{ backgroundColor: "#23ad3e" }}

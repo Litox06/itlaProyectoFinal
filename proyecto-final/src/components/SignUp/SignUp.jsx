@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
 
+
 import logo from "../../assets/images/logoGPS.png";
 import cedula from "../../assets/images/cedula.png";
 import email from "../../assets/images/email.png";
@@ -9,9 +10,30 @@ import passwordIcon from "../../assets/images/password.png";
 import hiddenPassword from "../../assets/images/hiddenPassword.png";
 import visiblePassword from "../../assets/images/visiblePassword.png";
 
+
+import  {saveUser}  from "../../database";
+
 export default function SignUp() {
+
+  
+ 
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIconShown, setPasswordIconShown] = useState(false);
+
+  const [ceedula, setCedula] = useState('');
+  const [eemail, setEmail] = useState('');
+  const [contrasena, setContrasena] = useState('');
+
+
+  const handleInputChangeCedula = ({target}) =>{
+    setCedula(target.value)
+  }
+  const handleInputChangeEmail = ({target}) =>{
+    setEmail(target.value)
+  }
+  const handleInputChangeContrasena = ({target}) =>{
+    setContrasena(target.value)
+  }  
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -42,6 +64,8 @@ export default function SignUp() {
                 type="text"
                 placeholder="Cedula: 00000000000"
                 style={{ fontSize: 14 }}
+                value={ceedula}
+                onChange={handleInputChangeCedula}
               />
             </div>
             <div className="input-container">
@@ -56,6 +80,8 @@ export default function SignUp() {
                 type="text"
                 placeholder="E-mail"
                 style={{ fontSize: 14 }}
+                value={eemail}
+                onChange={handleInputChangeEmail}
               />
             </div>
 
@@ -71,6 +97,8 @@ export default function SignUp() {
                 type={passwordShown ? "text" : "password"}
                 placeholder="Contraseña"
                 style={{ fontSize: 14 }}
+                value={contrasena}
+                onChange={handleInputChangeContrasena}
               />
               <img
                 className="password-eye-icon"
@@ -82,12 +110,14 @@ export default function SignUp() {
                 alt=""
               />
             </div>
+
             <Link to="/userregistered">
               <input
                 type="submit"
                 value="Registrar"
                 className="register"
                 style={{ backgroundColor: "#23ad3e" }}
+                onClick={()=>{saveUser(eemail, ceedula, contrasena)}}
               />
             </Link>
           </form>
