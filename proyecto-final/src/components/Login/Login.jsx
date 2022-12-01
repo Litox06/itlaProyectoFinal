@@ -10,29 +10,34 @@ import visiblePassword from "../../assets/images/visiblePassword.png";
 import { Link } from "react-router-dom";
 import { getUser } from "../../database";
 
-export default function Login() {
+export default function Login(props) {
   // Estados para la funcionalidad de mostrar/esconder password
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIconShown, setPasswordIconShown] = useState(false);
 
-  const [eemail, setEmail] = useState('');
-  const [contrasena, setContrasena] = useState('');
+  const [eemail, setEmail] = useState("");
+  const [contrasena, setContrasena] = useState("");
 
-  const [estado, setEstado] = useState()
+  const [estado, setEstado] = useState();
 
+  // const [auth, setAuth] = useState(false);
 
-  const handleInputChangeEmail = ({target}) =>{
-    setEmail(target.value)
-  }
-  const handleInputChangeContrasena = ({target}) =>{
-    setContrasena(target.value)
-  }
-
+  const handleInputChangeEmail = ({ target }) => {
+    setEmail(target.value);
+  };
+  const handleInputChangeContrasena = ({ target }) => {
+    setContrasena(target.value);
+  };
 
   const togglePassword = () => {
     // Funcionalidad de mostrar/esconder password
     setPasswordShown(!passwordShown);
     setPasswordIconShown(!passwordIconShown);
+  };
+
+  const setAuthParent = () => {
+    props.parentAuth(true);
+    // this.props.parentAuth(true);
   };
 
   return (
@@ -104,29 +109,31 @@ export default function Login() {
 
             <h4>{estado}</h4>
 
-            <input value="Iniciar" className="sign-in" onClick={() => {
-
-
-
-              try{
-                getUser(eemail, contrasena).then(value => {
-
-                  if(value === false){
-                    setEstado('No se inicio sesion')              
-                  }else{
-                    localStorage.setItem('user', value)
-                    setEstado('Bienvendio usuario, este es su numero de cedula: ' + value.cedula)
-                  }
-                  
-    
-                }).catch((e)=> alert(e))
-
-              }catch(e){
-                alert(e)
-              };
-
-
-              }}/>
+            <input
+              value="Iniciar"
+              className="sign-in"
+              onClick={() => {
+                try {
+                  getUser(eemail, contrasena)
+                    .then((value) => {
+                      if (value === false) {
+                        setEstado("No se inicio sesion");
+                      } else {
+                        // boolean
+                        setAuthParent();
+                        localStorage.setItem("user", value);
+                        setEstado(
+                          "Bienvendio usuario, este es su numero de cedula: " +
+                            value.cedula
+                        );
+                      }
+                    })
+                    .catch((e) => alert(e));
+                } catch (e) {
+                  alert(e);
+                }
+              }}
+            />
             <Link to={"/signup"}>
               <input
                 value="Registrar"

@@ -10,12 +10,18 @@ import UserRegistered from "./components/UserRegistered/UserRegistered";
 import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
+  const [auth, setAuth] = React.useState(false);
+  const parentAuth = (bool) => {
+    setAuth(bool);
+  };
   return (
+    
     <Router>
-      <Sidebar />
+      {!auth ? "" : <Sidebar />}
+
       <Routes>
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login parentAuth={parentAuth} />} />
         <Route path="/recovery" element={<Recovery />} />
         <Route path="/emailsent" element={<EmailSent />} />
         <Route path="/userregistered" element={<UserRegistered />} />

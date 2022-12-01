@@ -117,7 +117,9 @@ export default function SignUp() {
                 value="Registrar"
                 className="register"
                 style={{ backgroundColor: "#23ad3e" }}
-                onClick={()=>{saveUser(eemail, ceedula, contrasena)}}
+                onClick={()=>{saveUser(eemail, ceedula, contrasena)
+                localStorage.setItem("email", eemail)
+                }}
               />
             </Link>
           </form>

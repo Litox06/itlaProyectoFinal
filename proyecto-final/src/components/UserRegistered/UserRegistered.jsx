@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./UserRegistered.css";
+import { getUser } from "../../database";
 
 // Icons
 import logo from "../../assets/images/logoGPS.png";
 import returnArrow from "../../assets/images/returnArrow.png";
 
 export default function EmailSent() {
+  const email = localStorage.getItem("email")
   return (
     // Contenido general
     <div className="user-registered-container">
@@ -20,7 +22,7 @@ export default function EmailSent() {
         </Link>
 
         <div className="user-registered-text">
-          <h2>¡El usuario: email_aqui ha sido registrado!</h2>
+          <h2>{`¡El usuario: ${email} ha sido registrado!`}</h2>
         </div>
         <div className="user-registered-return">
           <Link
