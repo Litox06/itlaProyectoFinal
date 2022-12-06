@@ -19,7 +19,7 @@ export default function Sidebar() {
       {/* Elementos del sidebar */}
       <ul className="sidebarElements">
         <li>
-          <NavLink className="sidebarFontElements" to="/">
+          <NavLink className="sidebarFontElements" to="/home">
             Inicio
           </NavLink>
         </li>

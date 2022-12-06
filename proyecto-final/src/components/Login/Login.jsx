@@ -20,8 +20,6 @@ export default function Login(props) {
 
   const [estado, setEstado] = useState();
 
-  // const [auth, setAuth] = useState(false);
-
   const handleInputChangeEmail = ({ target }) => {
     setEmail(target.value);
   };
@@ -59,8 +57,8 @@ export default function Login(props) {
             <div className="input-container">
               <img
                 src={email}
-                width={17}
-                height={17}
+                width={27}
+                height={27}
                 style={{ padding: 5 }}
                 alt=""
               />
@@ -76,8 +74,8 @@ export default function Login(props) {
             <div className="input-container">
               <img
                 src={passwordIcon}
-                width={17}
-                height={17}
+                width={27}
+                height={27}
                 style={{ padding: 5 }}
                 alt=""
               />
@@ -109,7 +107,22 @@ export default function Login(props) {
 
             <h4>{estado}</h4>
 
+            {/* 
+            TODO: 
+
+            FRONTEND
+            - Arreglar el submit en el login
+            - Crear Home component
+            - Hacer que al iniciar sesion se redirija al Home component
+            - Crear validaciones para: Cedula invalida, email ya esta en uso, usuario no existe con ese email, contraseña incorrecta.
+
+            BACKEND
+
+            - Crear otra coleccion para los botes de basura que contengan: latitud, longitud, material
+            */}
+
             <input
+              // type="submit"
               value="Iniciar"
               className="sign-in"
               onClick={() => {
@@ -123,7 +136,7 @@ export default function Login(props) {
                         setAuthParent();
                         localStorage.setItem("user", value);
                         setEstado(
-                          "Bienvendio usuario, este es su numero de cedula: " +
+                          "Bienvenido usuario, este es su numero de cedula: " +
                             value.cedula
                         );
                       }
@@ -136,6 +149,7 @@ export default function Login(props) {
             />
             <Link to={"/signup"}>
               <input
+                // type="submit"
                 value="Registrar"
                 className="register"
                 style={{ backgroundColor: "#23ad3e" }}

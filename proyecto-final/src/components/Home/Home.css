@@ -1,0 +1,27 @@
+.home-container {
+  /* Estilo del contenedor general */
+  position: absolute;
+  top: 50%;
+  left: 58%;
+  height: 100%;
+  width: 85%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  resize: vertical;
+  /* border-radius: 15px;
+    border: 30px; */
+  /* background-color: blue; */
+}
+
+.information {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 85%;
+  background-color: red;
+}
+
+.dropdown-menus {
+  position: absolute;
+  top: 20% !important;
+  left: 10% !important;
+}

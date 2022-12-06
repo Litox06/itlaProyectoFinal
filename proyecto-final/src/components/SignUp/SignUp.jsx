@@ -2,7 +2,6 @@ import { React, useState } from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
 
-
 import logo from "../../assets/images/logoGPS.png";
 import cedula from "../../assets/images/cedula.png";
 import email from "../../assets/images/email.png";
@@ -10,37 +9,31 @@ import passwordIcon from "../../assets/images/password.png";
 import hiddenPassword from "../../assets/images/hiddenPassword.png";
 import visiblePassword from "../../assets/images/visiblePassword.png";
 
-
-import  {saveUser}  from "../../database";
+import { saveUser } from "../../database";
 
 export default function SignUp() {
-
-  
- 
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIconShown, setPasswordIconShown] = useState(false);
 
-  const [ceedula, setCedula] = useState('');
-  const [eemail, setEmail] = useState('');
-  const [contrasena, setContrasena] = useState('');
+  const [ceedula, setCedula] = useState("");
+  const [eemail, setEmail] = useState("");
+  const [contrasena, setContrasena] = useState("");
 
-
-  const handleInputChangeCedula = ({target}) =>{
-    setCedula(target.value)
-  }
-  const handleInputChangeEmail = ({target}) =>{
-    setEmail(target.value)
-  }
-  const handleInputChangeContrasena = ({target}) =>{
-    setContrasena(target.value)
-  }  
+  const handleInputChangeCedula = ({ target }) => {
+    setCedula(target.value);
+  };
+  const handleInputChangeEmail = ({ target }) => {
+    setEmail(target.value);
+  };
+  const handleInputChangeContrasena = ({ target }) => {
+    setContrasena(target.value);
+  };
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
     setPasswordIconShown(!passwordIconShown);
   };
   return (
-    <div className="login-container">
       <div className="main-container">
         <Link to="/login">
           <img
@@ -55,8 +48,8 @@ export default function SignUp() {
             <div className="input-container">
               <img
                 src={cedula}
-                width={17}
-                height={17}
+                width={27}
+                height={27}
                 style={{ padding: 5 }}
                 alt=""
               />
@@ -71,8 +64,8 @@ export default function SignUp() {
             <div className="input-container">
               <img
                 src={email}
-                width={17}
-                height={17}
+                width={27}
+                height={27}
                 style={{ padding: 5 }}
                 alt=""
               />
@@ -88,8 +81,8 @@ export default function SignUp() {
             <div className="input-container">
               <img
                 src={passwordIcon}
-                width={17}
-                height={17}
+                width={27}
+                height={27}
                 style={{ padding: 5 }}
                 alt=""
               />
@@ -117,14 +110,14 @@ export default function SignUp() {
                 value="Registrar"
                 className="register"
                 style={{ backgroundColor: "#23ad3e" }}
-                onClick={()=>{saveUser(eemail, ceedula, contrasena)
-                localStorage.setItem("email", eemail)
+                onClick={() => {
+                  saveUser(eemail, ceedula, contrasena);
+                  localStorage.setItem("email", eemail);
                 }}
               />
             </Link>
           </form>
         </div>
       </div>
-    </div>
   );
 }
