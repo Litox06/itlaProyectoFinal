@@ -10,6 +10,7 @@ import UserRegistered from "./components/UserRegistered/UserRegistered";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Home from "./components/Home/Home"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Promociones from "./components/Promociones/Promociones";
 
 function App() {
   const [auth, setAuth] = React.useState(false);
@@ -28,6 +29,7 @@ function App() {
         <Route path="/emailsent" element={<EmailSent />} />
         <Route path="/userregistered" element={<UserRegistered />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/promociones" element={<Promociones/>} />
       </Routes>
     </Router>
   );

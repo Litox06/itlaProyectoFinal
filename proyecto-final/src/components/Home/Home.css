@@ -8,8 +8,8 @@
   margin: 0;
   transform: translate(-50%, -50%);
   resize: vertical;
-  /* border-radius: 15px;
-    border: 30px; */
+  border-radius: 15px;
+  border: 30px;
   /* background-color: blue; */
 }
 
@@ -17,11 +17,16 @@
   position: absolute;
   margin-top: 10px;
   margin-left: 85%;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .dropdown-menus {
   position: absolute;
   top: 20% !important;
   left: 10% !important;
+}
+
+.map-container {
+  width: 400%;
+  height: 50vh;
 }
