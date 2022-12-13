@@ -16,7 +16,7 @@ GET http://localhost:3000/api/users HTTP/1.1
 
 //Get user by id
 ###
-GET http://localhost:3000/api/users/6361f3590fbbc8012e2dc6ec HTTP/1.1
+GET http://localhost:3000/api/users/6363087b1738326ee5037ad1 HTTP/1.1
 
 //Update user
 ###

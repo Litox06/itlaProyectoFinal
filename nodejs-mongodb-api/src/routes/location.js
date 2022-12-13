@@ -1,47 +1,47 @@
 const express = require("express");
-const userSchema = require("../models/user.js");
+const locationSchema = require("../models/location.js");
 const router = express.Router();
 
-//Create user
-router.post("/users", (req, res) => {
-  const user = userSchema(req.body);
-  user
+//Create locaation
+router.post("/locations", (req, res) => {
+  const location = locationSchema(req.body);
+  location
     .save()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
-//Get all users
-router.get("/users", (req, res) => {
-  userSchema
+//Get all locations
+router.get("/locations", (req, res) => {
+  locationSchema
     .find()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
-//Get user by
-router.get("/users/:id", (req, res) => {
+//Get location by
+router.get("/locations/:id", (req, res) => {
   const { id } = req.params;
-  userSchema
+  locationSchema
     .findById(id)
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
-//Update user
-router.put("/users/:id", (req, res) => {
+//Update location
+router.put("/locations/:id", (req, res) => {
   const { id } = req.params;
-  const { email, cedula, contrasena } = req.body;
-  userSchema
-    .updateOne({ _id: id }, { $set: { email, cedula, contrasena } })
+  const { latitud, longitud, material } = req.body;
+  locationSchema
+    .updateOne({ _id: id }, { $set: { latitud, longitud, material } })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
-//Delete user
-router.delete("/users/:id", (req, res) => {
+//Delete location
+router.delete("/locations/:id", (req, res) => {
   const { id } = req.params;
-  userSchema
+  locationSchema
     .deleteOne({ _id: id })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
