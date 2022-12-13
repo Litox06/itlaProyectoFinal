@@ -9,8 +9,10 @@ import EmailSent from "./components/EmailSent/EmailSent";
 import UserRegistered from "./components/UserRegistered/UserRegistered";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Home from "./components/Home/Home"
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Promociones from "./components/Promociones/Promociones";
+import Foro from "./components/Foro/Foro"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const [auth, setAuth] = React.useState(false);
@@ -30,6 +32,7 @@ function App() {
         <Route path="/userregistered" element={<UserRegistered />} />
         <Route path="/home" element={<Home />} />
         <Route path="/promociones" element={<Promociones/>} />
+        <Route path="/foro" element={<Foro/>}/>
       </Routes>
     </Router>
   );

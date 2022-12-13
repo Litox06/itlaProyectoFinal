@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="home-container">
       <div className="information">
-        <p>Email: {user}</p>
+        <p>{user}</p>
         <p>Puntos: {puntos}</p>
       </div>
 
@@ -30,7 +30,7 @@ export default function Home() {
           title="Tipo de material a reciclar"
         >
           <Dropdown.Item href="#/action-1">Plastico y/o envases metalicos</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Papel</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Papeeel</Dropdown.Item>
           <Dropdown.Item href="#/action-3">Vidrio</Dropdown.Item>
         </DropdownButton>
         <Map />

@@ -17,7 +17,7 @@ export default function Sidebar() {
       </div>
 
       {/* Elementos del sidebar */}
-      <ul className="sidebarElements">
+      <ul className="sidebarElements" style={{cursor:'pointer'}}>
         <li>
           <NavLink className="sidebarFontElements" to="/home">
             Inicio
