@@ -13,11 +13,15 @@ export default function Home() {
   useLoadScript({
     googleMapsApiKey: "AIzaSyAGT9PG9-H-kpNG7JXlxYpDcyTxdqaawr0",
   });
+
+  const user = localStorage.getItem("email");
+  const puntos = localStorage.getItem("puntos")
+
   return (
     <div className="home-container">
       <div className="information">
-        <p>email_aquemail_aquiemail_aqui</p>
-        <p>489 puntos</p>
+        <p>Email: {user}</p>
+        <p>Puntos: {puntos}</p>
       </div>
 
       <div className="dropdown-menus">
@@ -25,9 +29,7 @@ export default function Home() {
           id="dropdown-basic-button"
           title="Tipo de material a reciclar"
         >
-          <Dropdown.Item href="#/action-1">
-            Plastico y/o envases metalicos
-          </Dropdown.Item>
+          <Dropdown.Item href="#/action-1">Plastico y/o envases metalicos</Dropdown.Item>
           <Dropdown.Item href="#/action-2">Papel</Dropdown.Item>
           <Dropdown.Item href="#/action-3">Vidrio</Dropdown.Item>
         </DropdownButton>
@@ -38,7 +40,7 @@ export default function Home() {
 }
 
 function Map() {
-  const center = { lat: 18.4861, lng: -69.9312 };
+  const center = { lat: 18.4861, lng: -69.944312 };
 
   return (
     <GoogleMap zoom={15} center={center} mapContainerClassName="map-container">

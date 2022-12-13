@@ -7,7 +7,7 @@ const userRoutes = require("./routes/user.js");
 const locationRoutes = require("./routes/location.js");
 
 const app = express();
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 4200;
 app.use(cors());
 // Middleware
 app.use(express.json());

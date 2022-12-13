@@ -4,13 +4,15 @@ import "./Recovery.css";
 // Icons
 import logo from "../../assets/images/logoGPS.png";
 import email from "../../assets/images/email.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { comprobarUsuario, existenciaUsuario } from "../../database";
 
 export default function Recovery() {
   const [eemail, setEmail] = useState("");
   const handleInputChangeEmail = ({ target }) => {
     setEmail(target.value);
   };
+  const navigate = useNavigate();
 
   return (
     // Contenido general
@@ -49,15 +51,25 @@ export default function Recovery() {
               onChange={handleInputChangeEmail}
             />
           </div>
-
-          <Link to="/emailsent">
             <input
-              type="submit"
+              type="button"
               value="Enviar correo"
               className="send-email"
-              onClick={localStorage.setItem("email", eemail)}
+              onClick={async ()=>{
+                if(eemail === ""){
+                  alert("Debe rellenar el espacio")
+                  return;
+                }
+                let comp = await existenciaUsuario(eemail)
+                if(comp !== true){
+                  alert("El correo no esta registrado");
+                  return;
+                }
+
+                localStorage.setItem("email", eemail)
+                navigate("/emailsent")
+              }}
             />
-          </Link>
         </form>
       </div>
     </div>

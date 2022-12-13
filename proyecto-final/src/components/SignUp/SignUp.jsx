@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import "./SignUp.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import logo from "../../assets/images/logoGPS.png";
 import cedula from "../../assets/images/cedula.png";
@@ -9,15 +9,20 @@ import passwordIcon from "../../assets/images/password.png";
 import hiddenPassword from "../../assets/images/hiddenPassword.png";
 import visiblePassword from "../../assets/images/visiblePassword.png";
 
-import { saveUser } from "../../database";
+import { saveUser, comprobarUsuario } from "../../database";
+
 
 export default function SignUp() {
+
+  const navigate = useNavigate();
+
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIconShown, setPasswordIconShown] = useState(false);
 
   const [ceedula, setCedula] = useState("");
   const [eemail, setEmail] = useState("");
   const [contrasena, setContrasena] = useState("");
+
 
   const handleInputChangeCedula = ({ target }) => {
     setCedula(target.value);
@@ -104,19 +109,37 @@ export default function SignUp() {
               />
             </div>
 
-            <Link to="/userregistered">
               <input
-                type="submit"
+                type="button"
                 value="Registrar"
                 className="register"
                 style={{ backgroundColor: "#23ad3e" }}
-                onClick={() => {
+                onClick={async ()  =>  {
+
+                  if(eemail === "" || ceedula === "" || contrasena === ""){
+                    alert("Debe de rellenar todos los campos")
+                    return;
+                  }
+
+                  let alerta = await comprobarUsuario(eemail, ceedula)
+
+
+                  if(alerta !== true){
+                    alert(alerta)
+                    return;
+                  }
+
+
                   saveUser(eemail, ceedula, contrasena);
-                  localStorage.setItem("email", eemail);
+                  localStorage.setItem("email", eemail)
+                  navigate("/userregistered");
+                  return;
                 }}
+                
               />
-            </Link>
+            
           </form>
+
         </div>
       </div>
   );

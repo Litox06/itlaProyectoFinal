@@ -7,7 +7,7 @@ import email from "../../assets/images/email.png";
 import passwordIcon from "../../assets/images/password.png";
 import hiddenPassword from "../../assets/images/hiddenPassword.png";
 import visiblePassword from "../../assets/images/visiblePassword.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getUser } from "../../database";
 
 export default function Login(props) {
@@ -19,6 +19,8 @@ export default function Login(props) {
   const [contrasena, setContrasena] = useState("");
 
   const [estado, setEstado] = useState();
+
+  const navigate = useNavigate()
 
   const handleInputChangeEmail = ({ target }) => {
     setEmail(target.value);
@@ -122,7 +124,7 @@ export default function Login(props) {
             */}
 
             <input
-              // type="submit"
+              type="button"
               value="Iniciar"
               className="sign-in"
               onClick={() => {
@@ -130,15 +132,13 @@ export default function Login(props) {
                   getUser(eemail, contrasena)
                     .then((value) => {
                       if (value === false) {
-                        setEstado("No se inicio sesion");
+                        setEstado("Email o contraseña incorrecta");
                       } else {
                         // boolean
                         setAuthParent();
-                        localStorage.setItem("user", value);
-                        setEstado(
-                          "Bienvenido usuario, este es su numero de cedula: " +
-                            value.cedula
-                        );
+                        localStorage.setItem("email", value.email);
+                        localStorage.setItem("puntos", value.puntos);
+                        navigate("/home")
                       }
                     })
                     .catch((e) => alert(e));
@@ -149,7 +149,7 @@ export default function Login(props) {
             />
             <Link to={"/signup"}>
               <input
-                // type="submit"
+                type="button"
                 value="Registrar"
                 className="register"
                 style={{ backgroundColor: "#23ad3e" }}

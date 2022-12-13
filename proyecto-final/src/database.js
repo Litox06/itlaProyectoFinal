@@ -6,7 +6,8 @@ export function saveUser(email, cedula, contrasena){
         axios.post(url, {
             cedula: cedula ,
             email: email,
-            contrasena: contrasena
+            contrasena: contrasena,
+            puntos: 0
         }).catch((e)=>{alert(e)})
         
         
@@ -33,6 +34,36 @@ export async function getUser(email, contrasena){
     }catch(e){
         alert(e)
     }
+}
 
+export async function comprobarUsuario(email, cedula){
+    const response = await axios.get(url)
+
+    for(let i = 0; i < response.data.length; i++){
+        if(cedula.toString() === response.data[i].cedula.toString() && email.toString() === response.data[i].email.toString()){
+
+            return 'La cedula y el email estan registrados';
+        }else if(cedula.toString() === response.data[i].cedula.toString()){
+
+            return 'La cedula ya esta registrada';
+        }else if(email.toString() === response.data[i].email){
+
+            return 'El email ya esta registrado';
+        }      
+    }
+
+    return true;
+}
+
+export async function existenciaUsuario(email){
+    const response = await axios.get(url)
+
+    for(let i = 0; i < response.data.length; i++){
+        if(email.toString() === response.data[i].email){
+            return true;
+        }      
+    }
+
+    return false;
 }
 

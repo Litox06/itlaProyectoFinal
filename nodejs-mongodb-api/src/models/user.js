@@ -12,6 +12,10 @@ const userSchema = mongoose.Schema({
     contrasena: {
         type: String,
         required: true
+    },
+    puntos: {
+        type: Number,
+        required: true
     }
 })
 
