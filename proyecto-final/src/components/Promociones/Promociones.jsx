@@ -19,9 +19,9 @@ export default function Promociones() {
       <div className="articulos">
         <Container>
           <Row>
-            {[0, 1, 2, 3, 4, 5].map((i) => (
-              <Col xs="4">
-                <Card style={{ width: "18rem", marginBottom: 20 }}>
+            {[0, 1, 2].map((i) => (
+              <Col md="4">
+                <Card style={{ width: "18rem", marginRight: 40 }}>
                   <Card.Img
                     variant="top"
                     className="rounded mx-auto d-block"

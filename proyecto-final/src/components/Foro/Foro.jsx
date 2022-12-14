@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Container, Row, Col } from "react-bootstrap";
 import moment from "moment";
@@ -29,8 +28,9 @@ export default function Promociones() {
                       {user} el {createdAt}
                     </Card.Text>
                     <Card.Text>
-                      Este texto es un marcador de posicion para vender la idea
-                      de como funcionaria el foro
+                      Este texto es un marcador de posicion para presentar la
+                      idea de como funcionaria el foro, la idea principal aun
+                      sigue siendo el reciclaje y articulos de canjeo.
                     </Card.Text>
                   </Card.Body>
                   <Card.Img variant="bottom" src={arte} />
