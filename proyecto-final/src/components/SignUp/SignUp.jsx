@@ -10,18 +10,20 @@ import hiddenPassword from "../../assets/images/hiddenPassword.png";
 import visiblePassword from "../../assets/images/visiblePassword.png";
 
 import { saveUser, comprobarUsuario } from "../../database";
+import validator from "validator";
 
 
 export default function SignUp() {
 
   const navigate = useNavigate();
-
+  
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIconShown, setPasswordIconShown] = useState(false);
 
   const [ceedula, setCedula] = useState("");
   const [eemail, setEmail] = useState("");
   const [contrasena, setContrasena] = useState("");
+  const [emailError, setEmailError] = useState("");
 
 
   const handleInputChangeCedula = ({ target }) => {
@@ -64,6 +66,7 @@ export default function SignUp() {
                 style={{ fontSize: 14 }}
                 value={ceedula}
                 onChange={handleInputChangeCedula}
+                maxLength="11"
               />
             </div>
             <div className="input-container">
@@ -82,6 +85,7 @@ export default function SignUp() {
                 onChange={handleInputChangeEmail}
               />
             </div>
+            <h4>{emailError}</h4>
 
             <div className="input-container">
               <img
@@ -118,6 +122,11 @@ export default function SignUp() {
 
                   if(eemail === "" || ceedula === "" || contrasena === ""){
                     alert("Debe de rellenar todos los campos")
+                    return;
+                  }
+
+                  if(!validator.isEmail(eemail)){
+                    setEmailError("No es un email valido");
                     return;
                   }
 

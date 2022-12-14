@@ -1,4 +1,6 @@
 import axios from 'axios'
+import validator from 'validator'
+
 const url = `http://localhost:4200/api/users`
 
 export function saveUser(email, cedula, contrasena){
@@ -67,3 +69,6 @@ export async function existenciaUsuario(email){
     return false;
 }
 
+export async function validarEmail(email){
+    return validator.isEmail(email)
+}
