@@ -11,6 +11,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { getUser } from "../../database";
 
 export default function Login(props) {
+
+  props.parentAuth(false)
+
   // Estados para la funcionalidad de mostrar/esconder password
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIconShown, setPasswordIconShown] = useState(false);
@@ -138,6 +141,7 @@ export default function Login(props) {
                         setAuthParent();
                         localStorage.setItem("email", value.email);
                         localStorage.setItem("puntos", value.puntos);
+                        localStorage.setItem("id", value._id);
                         navigate("/home")
                       }
                     })

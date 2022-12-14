@@ -1,19 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import Card from "react-bootstrap/Card";
 import { Container, Row, Col } from "react-bootstrap";
 import moment from "moment";
 import arte from "../../assets/images/arteReciclaje.jpeg";
+import axios from "axios";
 
 export default function Promociones() {
-  const user = localStorage.getItem("email");
-  const puntos = localStorage.getItem("puntos");
+  const id = localStorage.getItem("id");
+
+  const [puntos, setpuntos] = useState(0);
+  const [email, setemail] = useState("");
+
+  const url = `http://localhost:4200/api/users/${id}`
+
+  axios.get(url).then(response =>{
+    setpuntos(response.data.puntos)
+    setemail(response.data.email)
+  })
 
   var createdAt = moment().format("DD-MM-YYYY");
 
   return (
     <div className="home-container">
       <div className="information">
-        <p>{user}</p>
+        <p>{email}</p>
         <p>Puntos: {puntos}</p>
       </div>
 
@@ -25,7 +35,7 @@ export default function Promociones() {
                 <Card>
                   <Card.Body>
                     <Card.Text>
-                      {user} el {createdAt}
+                      {email} el {createdAt}
                     </Card.Text>
                     <Card.Text>
                       Este texto es un marcador de posicion para presentar la

@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import GoogleMaps from "../GoogleMaps/GoogleMaps";
 import "./Home.css";
+import axios from "axios";
 
 const center = {
   lat: 18.4861,
@@ -27,12 +28,25 @@ let markers = [
 // Cargar mapa correctamente ya que parece existir un error de autenticacion en /home edita un poco el home para replicar el error,
 // arreglar los cards en /promociones ya que el sidebar en este se esta extendiendo sin razon
 export default function Home() {
-  const user = localStorage.getItem("email");
-  const puntos = localStorage.getItem("puntos");
+
+  
+  
+  const id = localStorage.getItem("id");
+
+  const [puntos, setpuntos] = useState(0);
+  const [email, setemail] = useState("");
+
+  const url = `http://localhost:4200/api/users/${id}`
+
+  axios.get(url).then(response =>{
+    setpuntos(response.data.puntos)
+    setemail(response.data.email)
+  })
+
   return (
     <div className="home-container">
       <div className="information">
-        <p>{user}</p>
+        <p>{email}</p>
         <p>Puntoxxxs: {puntos}</p>
       </div>
       <div className="dropdown-menus">

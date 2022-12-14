@@ -9,7 +9,7 @@ import passwordIcon from "../../assets/images/password.png";
 import hiddenPassword from "../../assets/images/hiddenPassword.png";
 import visiblePassword from "../../assets/images/visiblePassword.png";
 
-import { saveUser, comprobarUsuario } from "../../database";
+import { saveUser, comprobarUsuario, validateDominicanId } from "../../database";
 import validator from "validator";
 
 
@@ -23,7 +23,6 @@ export default function SignUp() {
   const [ceedula, setCedula] = useState("");
   const [eemail, setEmail] = useState("");
   const [contrasena, setContrasena] = useState("");
-  const [emailError, setEmailError] = useState("");
 
 
   const handleInputChangeCedula = ({ target }) => {
@@ -85,7 +84,6 @@ export default function SignUp() {
                 onChange={handleInputChangeEmail}
               />
             </div>
-            <h4>{emailError}</h4>
 
             <div className="input-container">
               <img
@@ -121,14 +119,25 @@ export default function SignUp() {
                 onClick={async ()  =>  {
 
                   if(eemail === "" || ceedula === "" || contrasena === ""){
-                    alert("Debe de rellenar todos los campos")
+                    alert("Debe de llenar todos los campos")
+                    return;
+                  }
+
+                  if(!validateDominicanId(ceedula)){
+                    alert("La cédula que ha introducido no es válida");
                     return;
                   }
 
                   if(!validator.isEmail(eemail)){
-                    setEmailError("No es un email valido");
+                    alert("El email que ha introducido no es valido");
                     return;
                   }
+
+                  if(contrasena.length < 8){
+                    alert("Tu contraseña debe tener mínimo de 8 caracteres");
+                    return;
+                  }
+
 
                   let alerta = await comprobarUsuario(eemail, ceedula)
 

@@ -1,19 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Container, Row, Col } from "react-bootstrap";
 import "./Promociones.css";
 import articulo from "../../assets/images/articuloLlamativo.jpeg";
+import axios from "axios";
 
 export default function Promociones() {
-  const user = localStorage.getItem("email");
-  const puntos = localStorage.getItem("puntos");
+  const id = localStorage.getItem("id");
+
+  const [points, setpoints] = useState(0);
+  const [email, setemail] = useState("");
+
+  const url = `http://localhost:4200/api/users/${id}`
+
+  axios.get(url).then(response =>{
+    setpoints(response.data.puntos)
+    setemail(response.data.email)
+  })
 
   return (
     <div className="home-container">
       <div className="information">
-        <p>{user}</p>
-        <p>Puntos: {puntos}</p>
+        <p>{email}</p>
+        <p>Puntos: {points}</p>
       </div>
 
       <div className="articulos">
@@ -39,7 +49,7 @@ export default function Promociones() {
                       Este es un articulo llamativo el cual se podra canjear con
                       una X cantidad de puntos en una tienda XYZ.
                     </Card.Text>
-                    <Button variant="primary">Canjear articulo</Button>
+                    <Button variant="primary" onClick={canjear} >Canjear articulo</Button>
                   </Card.Body>
                 </Card>
               </Col>
@@ -49,4 +59,19 @@ export default function Promociones() {
       </div>
     </div>
   );
+
+  async function canjear(){
+  
+    let p = points - 50
+
+    const res = await axios.put(url,{
+      puntos: p
+    })
+
+    axios.get(url).then(response =>{
+      setpoints(response.data.puntos)
+    }).then(()=>{alert("Puntos canjeados")})
+  
+  }
 }
+
