@@ -90,7 +90,7 @@ export default function Promociones() {
           <button onClick={()=> {setOpenModal(false)}}> X </button>
           </div>
           <div className="title">
-            <h1>Seleccione donde quiere canjear los puntos:</h1>
+            <h1>Deseo canjear mi articulo en:</h1>
           </div>
           <div className="body">
             <button className="button button1" onClick={()=>{

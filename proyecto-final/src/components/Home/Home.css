@@ -17,8 +17,7 @@
   position: absolute;
   margin-top: 10px;
   margin-left: 85%;
-  color: black; 
-  border: 5px solid black;
+  border: 5px solid #3C6A75;
   border-radius: 10px;
   /* background-color: red; */
 }
@@ -31,7 +30,6 @@
   margin-left: 10px;
   margin-right: 10px;
   padding: 5px;
-  font-family: fantasy;
   font-size: 15pt;
   color: black;
 

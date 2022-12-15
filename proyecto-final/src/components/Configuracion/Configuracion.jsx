@@ -43,8 +43,7 @@ export default function Configuracion() {
     // Contenido general
     <div className="login-container">
       <div className="main-container" style={{left: "60%"}}>
-        <h2>Configuracion</h2>
-
+        <h2>Configuración</h2>
         <div className="form-container">
           <form>
             <div className="input-container" >
