@@ -22,11 +22,11 @@
 
 .dropdown-menus {
   position: absolute;
-  top: 10% !important;
+  top: 30% !important;
   left: 20% !important;
 }
 
 .map-container {
-  width: 400%;
+  width: 600% !important;
   height: 50vh;
 }

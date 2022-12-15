@@ -40,7 +40,6 @@ export default function Login(props) {
 
   const setAuthParent = () => {
     props.parentAuth(true);
-    // this.props.parentAuth(true);
   };
 
   return (

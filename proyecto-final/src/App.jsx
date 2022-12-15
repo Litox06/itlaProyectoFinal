@@ -12,6 +12,7 @@ import Home from "./components/Home/Home"
 import Promociones from "./components/Promociones/Promociones";
 import Foro from "./components/Foro/Foro"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Configuracion from "./components/Configuracion/Configuracion";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/promociones" element={<Promociones/>} />
         <Route path="/foro" element={<Foro/>}/>
+        <Route path="/configuracion" element={<Configuracion/>}/>
       </Routes>
     </Router>
   );

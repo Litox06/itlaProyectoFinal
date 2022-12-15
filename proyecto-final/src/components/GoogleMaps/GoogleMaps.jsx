@@ -5,14 +5,13 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 // import { GoogleMap, useJsApiLoader, MarkerF } from "@react-google-maps/api";
 import { GoogleMap, useJsApiLoader, MarkerF } from '@react-google-maps/api';
 const containerStyle = {
-  width: '400px',
-  height: '400px'
+
+  width: "50%",
+  height: "50vh",
+  borderRadius: "15px",
+  border: "30px",
 };
 
-
-// TODO: Arreglar posicionamiento de los botones de Iniciar y Registrar en /login,
-// Cargar mapa correctamente ya que parece existir un error de autenticacion en /home edita un poco el home para replicar el error, 
-// arreglar los cards en /promociones ya que el sidebar en este se esta extendiendo sin razon
 export default function GoogleMaps(props) {
 
   const { isLoaded } =  useJsApiLoader({
@@ -28,7 +27,7 @@ export default function GoogleMaps(props) {
     map.fitBounds(bounds);
 
     setMap(map)
-  }, [])
+  }, [props.position])
 
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
@@ -50,13 +49,3 @@ export default function GoogleMaps(props) {
     </GoogleMap>
 ) : <></>
 }
-
-// async function Map() {
-//   const center = { lat: 18.4861, lng: -69.944312 };
-
-//    return (
-//     <GoogleMap zoom={15} center={center} mapContainerClassName="map-container">
-//       <MarkerF position={center} />
-//     </GoogleMap>
-//   );
-// }
