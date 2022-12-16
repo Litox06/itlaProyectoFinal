@@ -33,7 +33,7 @@ export default function Configuracion() {
 
   const id = localStorage.getItem("id");
   const url = `http://localhost:4200/api/users/${id}`;
-  const correo = localStorage.getItem("email");
+ 
 
   axios.get(url).then((response) => {
     setPlaceholderEmail(response.data.email);

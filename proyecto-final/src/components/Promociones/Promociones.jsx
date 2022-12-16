@@ -32,7 +32,8 @@ export default function Promociones() {
       <div className="articulos">
         <Container>
           <Row>
-            {[0, 1, 2].map((i) => (
+
+            {[{title: "hi", body: ""}, 1, 2].map((i) => (
               <Col md="4">
                 <Card style={{ width: "18rem", marginRight: 40 }}>
                   <Card.Img
@@ -47,7 +48,7 @@ export default function Promociones() {
                     }}
                   />
                   <Card.Body>
-                    <Card.Title>Articulo Llamativo</Card.Title>
+                    <Card.Title>{i.text}</Card.Title>
                     <Card.Text>
                       Este es un articulo llamativo el cual se podra canjear con
                       una X cantidad de puntos en una tienda XYZ.
@@ -72,7 +73,7 @@ export default function Promociones() {
   
     let p = points - 50
 
-    const res = await axios.put(url,{
+    await axios.put(url,{
       puntos: p
     })
 
