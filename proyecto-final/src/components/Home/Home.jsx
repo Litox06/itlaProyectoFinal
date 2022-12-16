@@ -100,7 +100,7 @@ export default function Home() {
           <Dropdown.Item onClick={handleVidrio}>Vidrio</Dropdown.Item>
         </DropdownButton>
         <div className="map-container">
-          <GoogleMaps zoom={10} position={center} marks={markers}></GoogleMaps>
+          <GoogleMaps position={center} marks={markers}></GoogleMaps>
         </div>
       </div>
     </div>

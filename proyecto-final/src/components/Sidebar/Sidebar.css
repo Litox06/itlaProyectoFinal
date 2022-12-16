@@ -1,22 +1,19 @@
 .sidebarLogo {
-  /* Logo Payan */
   text-align: center;
   padding-top: 10px;
 }
 
 .sidebar {
-  /* Estilo del sidebar */
   font-weight: 500;
   height: 100vh !important;
   width: 290px;
   bottom: 0;
   left: 0;
   overflow: hidden;
-  background-color: #e3e6eb
+  background-color: #e3e6eb;
 }
 
 .sidebarElements {
-  /* Estilo de los elementos del sidebar */
   color: #a2acbb;
   font-size: 20px;
   width: 100%;
@@ -27,13 +24,11 @@
 }
 
 .sidebarElements img {
-  /* Posicionando imagen de manera correcta */
   margin-right: 10px;
   vertical-align: 0% !important;
 }
 
 .sidebarExtras {
-  /* Posicionando "Configuracion" y "Cerrar Sesion" */
   position: absolute;
   bottom: 0;
 }
@@ -50,7 +45,6 @@ ul {
 }
 
 ul li {
-  /* Estilando de la lista */
   display: inline-flex;
   list-style: none;
   align-items: center;
@@ -69,13 +63,11 @@ ul li a {
 }
 
 ul li img {
-  /* Redimensionando iconos */
   width: 23px;
   height: 23px;
 }
 
-ul li:focus
-/* Cambiar colores a elementos si estan seleccionados */ {
+ul li:focus {
   color: #e83628;
   background-color: #feebeb;
   border-left: 3px solid #e83628;

@@ -9,8 +9,6 @@ import returnArrow from "../../assets/images/returnArrow.png";
 export default function EmailSent() {
   const email = localStorage.getItem("email");
   return (
-    // Contenido general
-
     <div className="main-container">
       <Link to="/login">
         <img

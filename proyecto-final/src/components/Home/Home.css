@@ -1,5 +1,4 @@
 .home-container {
-  /* Estilo del contenedor general */
   position: absolute;
   top: 50%;
   left: 58%;
@@ -10,20 +9,17 @@
   resize: vertical;
   border-radius: 15px;
   border: 30px;
-  /* background-color: blue; */
 }
 
 .information {
   position: absolute;
   margin-top: 10px;
   margin-left: 85%;
-  border: 5px solid #3C6A75;
+  border: 5px solid #3c6a75;
   border-radius: 10px;
-  /* background-color: red; */
 }
 
-.information p{
-
+.information p {
   align-items: center;
   justify-content: center;
   margin-top: 10px;
@@ -32,7 +28,6 @@
   padding: 5px;
   font-size: 15pt;
   color: black;
-
 }
 
 .dropdown-menus {

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import { Container, Row, Col } from "react-bootstrap";
 import moment from "moment";
@@ -11,12 +11,12 @@ export default function Promociones() {
   const [puntos, setpuntos] = useState(0);
   const [email, setemail] = useState("");
 
-  const url = `http://localhost:4200/api/users/${id}`
+  const url = `http://localhost:4200/api/users/${id}`;
 
-  axios.get(url).then(response =>{
-    setpuntos(response.data.puntos)
-    setemail(response.data.email)
-  })
+  axios.get(url).then((response) => {
+    setpuntos(response.data.puntos);
+    setemail(response.data.email);
+  });
 
   var createdAt = moment().format("DD-MM-YYYY");
 

@@ -7,12 +7,16 @@ import hiddenPassword from "../../assets/images/hiddenPassword.png";
 import visiblePassword from "../../assets/images/visiblePassword.png";
 import axios from "axios";
 import validator from "validator";
-import { comprobarEmail, comprobarPassword, editarEmail, editarPassword } from "../../database";
+import {
+  comprobarEmail,
+  comprobarPassword,
+  editarEmail,
+  editarPassword,
+} from "../../database";
 
 import "./Configuracion.css";
 
 export default function Configuracion() {
-  // Estados para la funcionalidad de mostrar/esconder password
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIconShown, setPasswordIconShown] = useState(false);
   const [eemail, setEmail] = useState("");
@@ -33,20 +37,18 @@ export default function Configuracion() {
 
   const id = localStorage.getItem("id");
   const url = `http://localhost:4200/api/users/${id}`;
- 
 
   axios.get(url).then((response) => {
     setPlaceholderEmail(response.data.email);
   });
 
   return (
-    // Contenido general
     <div className="login-container">
-      <div className="main-container" style={{left: "60%"}}>
+      <div className="main-container" style={{ left: "60%" }}>
         <h2>Configuración</h2>
         <div className="form-container">
           <form>
-            <div className="input-container" >
+            <div className="input-container">
               <img
                 src={email}
                 width={27}

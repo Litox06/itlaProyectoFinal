@@ -5,8 +5,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./Promociones.css";
 import "./Modal.css";
 import smartFridge from "../../assets/images/articuloLlamativo.jpeg";
-import amgSUV from "../../assets/images/amgSUV.png"
-import smartTV from "../../assets/images/sonyBravia.jpeg"
+import amgSUV from "../../assets/images/amgSUV.png";
+import smartTV from "../../assets/images/sonyBravia.jpeg";
 import axios from "axios";
 
 export default function Promociones() {
@@ -38,7 +38,7 @@ export default function Promociones() {
               {
                 title: "Samsung RF23A9771",
                 body: "El Smart Counter Depth 4-Door Flex™ con Family Hub™ te ayuda a conectar con lo más importante: tu familia y tu hogar.",
-                article: smartFridge ,
+                article: smartFridge,
                 widthImage: 100,
                 heightImage: 180,
               },

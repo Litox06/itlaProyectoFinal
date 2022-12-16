@@ -1,17 +1,17 @@
-.edit-credentials{
-    color: #FFFFFF;
-    width: 100%;
-    padding: 5px;
-    font-size: 14px;
-    font-weight: 700;
-    border-radius: 99px;
-    background-color: #3CAC3D;
-    cursor: pointer;
+.edit-credentials {
+  color: #ffffff;
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 99px;
+  background-color: #3cac3d;
+  cursor: pointer;
 }
 
 .edit-password-eye-icon {
-    position: absolute;
-    top: 33.5%;
-    left: 46%;
-    cursor: pointer;
+  position: absolute;
+  top: 33.5%;
+  left: 46%;
+  cursor: pointer;
 }

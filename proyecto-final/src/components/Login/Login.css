@@ -1,11 +1,4 @@
-/* .login-container {
-    height: 100vh;
-    padding: 1.25rem;
-    background-color: #dedfe2 !important;
-} */
-
 .main-container {
-    /* Estilo del contenedor general */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -20,7 +13,6 @@
 }
 
 .form-container {
-    /* Estilo de los elementos dentro del contenedor general */
     width: 70%;
     margin: 0 auto;
     display: flex;
@@ -33,7 +25,6 @@
 }
 
 input {
-    /* Estilo de los inputs */
     width: 100%;
     font-size: 14px;
     font-weight: 400;
@@ -54,7 +45,6 @@ input:focus {
 }
 
 .password-eye-icon {
-    /* Estilo del icono de mostrar/esconder password */
     position: absolute;
     right: 30px;
     cursor: pointer;
@@ -62,7 +52,6 @@ input:focus {
 
 .recovery
 {
-    /* Estilo de "Olvidaste la contraseña?" */
     font-size: 14px;
     margin: 30px;
     color: #7E8CA0;
@@ -72,7 +61,6 @@ input:focus {
 
 .sign-in,
 .register {
-    /* Estilo de iniciar sesion */
     color: #FFFFFF;
     width: 100%;
     padding: 20px;

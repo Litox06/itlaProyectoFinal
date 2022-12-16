@@ -2,15 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./EmailSent.css";
 
-// Icons
+
 import logo from "../../assets/images/logoGPS.png";
 import returnArrow from "../../assets/images/returnArrow.png";
 
 export default function EmailSent() {
   const email = localStorage.getItem("email");
   return (
-    // Contenido general
-
     <div className="main-container">
       <Link to="/login">
         <img
@@ -19,7 +17,6 @@ export default function EmailSent() {
           alt=""
         />
       </Link>
-
       <div className="email-sent-text">
         <h2>Hemos enviado un link al correo: {email}</h2>
       </div>

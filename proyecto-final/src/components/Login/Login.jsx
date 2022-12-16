@@ -1,29 +1,25 @@
 import React, { useState } from "react";
 import "./Login.css";
 
-// Icons
 import logo from "../../assets/images/logoGPS.png";
 import email from "../../assets/images/email.png";
 import passwordIcon from "../../assets/images/password.png";
 import hiddenPassword from "../../assets/images/hiddenPassword.png";
 import visiblePassword from "../../assets/images/visiblePassword.png";
+
 import { Link, useNavigate } from "react-router-dom";
 import { getUser } from "../../database";
 
 export default function Login(props) {
+  props.parentAuth(false);
 
-  props.parentAuth(false)
-
-  // Estados para la funcionalidad de mostrar/esconder password
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIconShown, setPasswordIconShown] = useState(false);
-
   const [eemail, setEmail] = useState("");
   const [contrasena, setContrasena] = useState("");
-
   const [estado, setEstado] = useState();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleInputChangeEmail = ({ target }) => {
     setEmail(target.value);
@@ -33,7 +29,6 @@ export default function Login(props) {
   };
 
   const togglePassword = () => {
-    // Funcionalidad de mostrar/esconder password
     setPasswordShown(!passwordShown);
     setPasswordIconShown(!passwordIconShown);
   };
@@ -43,7 +38,6 @@ export default function Login(props) {
   };
 
   return (
-    // Contenido general
     <div className="login-container">
       <div className="main-container">
         <Link to="/login">
@@ -55,8 +49,6 @@ export default function Login(props) {
         </Link>
 
         <div className="form-container">
-          {/* Contenido de los formularios (username y password)
-        tambien un poco de estilo */}
           <form>
             <div className="input-container">
               <img
@@ -111,20 +103,6 @@ export default function Login(props) {
 
             <h4>{estado}</h4>
 
-            {/* 
-            TODO: 
-
-            FRONTEND
-            - Arreglar el submit en el login
-            - Crear Home component
-            - Hacer que al iniciar sesion se redirija al Home component
-            - Crear validaciones para: Cedula invalida, email ya esta en uso, usuario no existe con ese email, contraseña incorrecta.
-
-            BACKEND
-
-            - Crear otra coleccion para los botes de basura que contengan: latitud, longitud, material
-            */}
-
             <input
               type="button"
               value="Iniciar"
@@ -141,7 +119,7 @@ export default function Login(props) {
                         localStorage.setItem("email", value.email);
                         localStorage.setItem("puntos", value.puntos);
                         localStorage.setItem("id", value._id);
-                        navigate("/home")
+                        navigate("/home");
                       }
                     })
                     .catch((e) => alert(e));
