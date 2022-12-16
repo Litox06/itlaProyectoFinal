@@ -10,10 +10,6 @@ const center = {
   lng: -69.944312,
 };
 
-
-// TODO: Arreglar posicionamiento de los botones de Iniciar y Registrar en /login,
-// Cargar mapa correctamente ya que parece existir un error de autenticacion en /home edita un poco el home para replicar el error,
-// arreglar los cards en /promociones ya que el sidebar en este se esta extendiendo sin razon
 export default function Home() {
   const id = localStorage.getItem("id");
 
@@ -29,68 +25,62 @@ export default function Home() {
     setemail(response.data.email);
   });
 
-
   let handlePlastico = () => {
-    setMarkers(markers => []);
+    setMarkers((markers) => []);
     setMarkers((prevMarkers) => [
       ...prevMarkers,
       {
-        lat: 18.4861,
-        lng: -69.92103,
+        lat: 18.48373129363572,
+        lng: -69.93936346282472,
       },
       {
-        lat: 18.4861,
-        lng: -69.912312,
+        lat: 18.46230846131442,
+        lng: -69.97575640780086,
       },
       {
-        lat: 18.4861,
-        lng: -69.95143,
-      }
-  ]);
-  }
+        lat: 18.451074693159523,
+        lng: -69.95286811795593,
+      },
+    ]);
+  };
 
   let handlePapel = () => {
-    setMarkers(markers => []);
+    setMarkers((markers) => []);
     setMarkers((prevMarkers) => [
       ...prevMarkers,
       {
-        lat: 18.4861,
-        lng: -69.94403,
+        lat: 18.426967001374425,
+        lng: -69.97735400063748,
       },
       {
-        lat: 18.4861,
-        lng: -69.944312,
+        lat: 18.442517540324015,
+        lng: -69.96994811265985,
       },
       {
-        lat: 18.4861,
-        lng: -69.94443,
-      }
-  ]);
-  }
+        lat: 18.463655884409064,
+        lng: -69.91902304808973,
+      },
+    ]);
+  };
 
   let handleVidrio = () => {
-    setMarkers(markers => []);
+    setMarkers((markers) => []);
     setMarkers((prevMarkers) => [
       ...prevMarkers,
       {
-        lat: 18.4731,
-        lng: -69.94403,
+        lat: 18.476603224127874,
+        lng: -69.92015097876276,
       },
       {
-        lat: 18.4711,
-        lng: -69.944312,
+        lat: 18.464411532355296,
+        lng: -69.95872640517196,
       },
       {
-        lat: 18.4741,
-        lng: -69.94443,
-      }
-  ]);
-  }
-  // pushMarkers([
-
-  // ], markers)
-
-
+        lat: 18.428317511114933,
+        lng: -69.98940658921907,
+      },
+    ]);
+  };
 
   return (
     <div className="home-container">
@@ -103,7 +93,9 @@ export default function Home() {
           id="dropdown-basic-button"
           title="Tipo de material a reciclar"
         >
-          <Dropdown.Item onClick={handlePlastico}>Plastico y/o envases metalicos</Dropdown.Item>
+          <Dropdown.Item onClick={handlePlastico}>
+            Plastico y/o envases metalicos
+          </Dropdown.Item>
           <Dropdown.Item onClick={handlePapel}>Papel</Dropdown.Item>
           <Dropdown.Item onClick={handleVidrio}>Vidrio</Dropdown.Item>
         </DropdownButton>
